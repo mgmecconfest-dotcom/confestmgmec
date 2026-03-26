@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Event</title>
+
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0a1f44, #123a6b);
+    color: white;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 30px;
+    font-size: 60px;
+    color: #ffd700;
+    text-shadow: 0 0 10px gold;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    transition: 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+  }
+
+  .card h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+
+  .btn {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffd700, #d4af37);
+    color: #0a1f44;
+    transition: 0.3s;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px gold;
+  }
+</style>
+
+</head>
+<body>
+<h2>Select Event</h2>
+
+<div class="container">
+
+  <div class="card">
+    <h3>📊 Think Feed</h3>
+    <p>Paper Presentation</p>
+    <p>🕒 11:30 AM – 1:30 PM</p>
+    <p>⏱ Duration: 7 min (5+2 Q&A)</p>
+    <p>👤 Individual</p>
+    <button class="btn" onclick="window.location.href='https://forms.gle/VaUo82jru5Qf1TbU7'">Register</button>
+  </div>
+
+  <div class="card">
+    <h3>🗣 Comment Wars</h3>
+    <p>Debate</p>
+    <p>🕒 10:30 AM – 12:00 PM</p>
+    <p>⏱ Multi-round</p>
+    <p>👥 2 per college</p>
+    <button class="btn" onclick="window.location.href='https://forms.gle/sRrAQfnovASdsSvK6'">Register</button>
+  </div>
+
+  <div class="card">
+    <h3>📱 Buzz Builders</h3>
+    <p>Marketing Campaign</p>
+    <p>🕒 11:30 AM – 1:30 PM</p>
+    <p>⏱ Duration: 2 Hours</p>
+    <p>👥 Team of 2</p>
+    <button class="btn" onclick="window.location.href='https://forms.gle/aWc3s9cuf6ndzfEu8'">Register</button>
+  </div>
+
+  <div class="card">
+    <h3>🎨 Pixel Impact</h3>
+    <p>Poster Design</p>
+    <p>🕒 10:30 AM – 11:30 AM</p>
+    <p>⏱ Duration: 90 min</p>
+    <p>👥 Team of 2</p>
+    <button class="btn" onclick="window.location.href='https://forms.gle/dADdSK7VXbLCxyh56'">Register</button>
+  </div>
+
+  <div class="card">
+    <h3>✍ Say It Smart</h3>
+    <p>Caption Writing</p>
+    <p>🕒 10:30 AM – 11:30 AM</p>
+    <p>⏱ Duration: 60 min</p>
+    <p>👤 Individual</p>
+    <button class="btn" onclick="window.location.href='https://forms.gle/9xmBEV5bJa5nxmMW7'">Register</button>
+  </div>
+
+  <div class="card">
+    <h3>🎥 60 Secs Fame</h3>
+    <p>Reel Making</p>
+    <p>🕒 3:00 PM – 4:00 PM</p>
+    <p>⏱ Duration: 60 sec video</p>
+    <p>👥 Max 2 members</p>
+    <button class="btn" onclick="window.location.href='https://forms.gle/xnPJjKCnhRUwo7tN9'">Register</button>
+  </div>
+
+  <div class="card">
+    <h3>🎬 Digital Echoes</h3>
+    <p>Short Film</p>
+    <p>🕒 1:30 PM – 2:30 PM</p>
+    <p>⏱ Max 7 minutes</p>
+    <p>👥 Team of 2</p>
+    <button class="btn" onclick="window.location.href='https://forms.gle/C44147VTZpu5XVr46'">Register</button>
+  </div>
+
+  <div class="card">
+    <h3>💃 Viral to Real</h3>
+    <p>Cultural Showdown</p>
+    <p>🕒 2:30 PM – 3:30 PM</p>
+    <p>⏱ 8+2 minutes</p>
+    <p>👥 Team: 6–12</p>
+    <button class="btn" onclick="window.location.href='https://forms.gle/TqM7RAB3R7YdP1d19'">Register</button>
+  </div>
+
+</div></body>
+</html>
