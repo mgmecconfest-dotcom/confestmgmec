@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Team Registration</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0a1f44, #123a6b);
+      color: white;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 30px;
+      font-size: 50px;
+      color: #ffd700;
+      text-shadow: 0 0 10px gold;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 500px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    input:focus {
+      box-shadow: 0 0 10px gold;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ffd700, #d4af37);
+      color: #0a1f44;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px gold;
+    }
+
+    #participants input {
+      margin-bottom: 10px;
+    }
+.show{
+display:block;
+}
+.hidden{
+display:none;
+}
+  </style>
+
+</head>
+
+<body>
+
+<h2>Team Registration</h2>
+
+<div class="card">
+<form>
+  <div id='clgdiv'>
+  <label>College Name:</label>
+  <input type="text" id="college" required pattern=^[A-Za-z]+(?:\s[A-Za-z]+)*$>
+
+  <label>Number of Participants:</label>
+  <input type="number" id="count"  min="1" required>
+
+  <button class="btn" onclick="generateFields()" id='genbtn'>Generate Participants</button>
+  </div>
+
+  <div id="participants"></div>
+
+  <button class="btn hidden" onclick="submitData()" id="submitBtn" disabled>Submit</button>
+</form>
+
+</div>
+
+<script>
+
+function generateFields() {
+    let count = document.getElementById("count").value;
+    let container = document.getElementById("participants");
+
+if (count <= 0) {
+        alert("Enter valid number of participants");
+        return;
+    }
+
+    container.innerHTML = "";
+
+    for (let i = 1; i <= count; i++) {
+        container.innerHTML += `
+            <label>Participant ${i}</label>
+            <input type='text' id='p${i}' placeholder='Enter name' required>
+        `;
+    }
+// Enable submit button after fields generated
+    document.getElementById("submitBtn").disabled = false;
+	document.getElementById("submitBtn").classList.add("show");
+
+document.getElementById("submitBtn").classList.remove("hidden");
+document.getElementById("clgdiv").classList.add("hidden");
+}
+
+function submitData() {
+    let college = document.getElementById("college").value;
+    let count = document.getElementById("count").value;
+
+if (college === "") {
+        alert("Enter College Name");
+        return;
+    }
+
+
+    let participants = [];
+
+    for (let i = 1; i <= count; i++) {
+        let name = document.getElementById("p" + i).value;
+if (name === "") {
+            //alert("Please fill all participant names");
+            return;
+        }
+
+        participants.push(name);
+    }
+
+    fetch("https://script.google.com/macros/s/AKfycbxdBeDcCgigtgzno-RSXIUGM7izBWwfN-MWahHL14xyr1R-NHXpj8jaKfqQ3UEOT5BM1A/exec", {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+            college: college,
+            participants: participants
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    alert("Submitted Successfully");
+
+    document.getElementById("college").value = "";
+    document.getElementById("count").value = "";
+    document.getElementById("participants").innerHTML = "";
+    document.getElementById("college").focus();
+document.getElementById("submitBtn").innerHTML="Registered Successfully";
+document.getElementById("submitBtn").disabled=true;
+}
+
+</script>
+
+</body>
+</html>
